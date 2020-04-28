@@ -1,0 +1,36 @@
+{
+	"folders": [
+		{
+			"name": "html",
+			"path": "/var/www/html"
+		},
+		{
+			"name": "dev-pos-android",
+			"path": "/var/www/html/dev-pos-android"
+		},
+		{
+			"name": "pro-imobiliare-v1-laraedit",
+			"path": "/var/www/html/pro-imobiliare-v1-laraedit"
+		},
+		{
+			"name": "spay_changelog",
+			"path": "/var/www/html/spay_changelog"
+		},
+		{
+			"name": "tracker",
+			"path": "/var/www/html/var/dev-acme/acme/tracker"
+		},
+		{
+			"name": "api",
+			"path": "/var/www/html/var/eg_api_php7_laravel/acme/api"
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/.classpath": true,
+			"**/.project": true,
+			"**/.settings": true,
+			"**/.factorypath": true
+		}
+	}
+}

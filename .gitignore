@@ -1,0 +1,17 @@
+/backup
+/github
+/dev
+/var
+/.git
+*.sh
+*.java
+*.php
+*.js
+*.html
+*.css
+*.pdf
+*.go
+*.py
+*.cpp
+*.c
+xyz *
