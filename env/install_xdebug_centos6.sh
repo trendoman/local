@@ -30,7 +30,6 @@ xdebug.remote_autostart=1
 xdebug.remote_handler=dbgp
 xdebug.remote_port=9000
 xdebug.remote_host=127.0.0.1
-xdebug.var_display_max_data=-1
 EOF
 
 sudo tee -a $URL_XDEBUG_INI <<EOF
@@ -48,25 +47,45 @@ php -m | grep xdebug && php -i | less | grep xdebug | sort # Should output somet
 php -v # PHP 7.2.25 (cli) ... with Xdebug v2.9.2
 
 cat <<EOF
-=> Install VSCode extension: PHP Debug (felixfbecker.php-debug).
-=> Add to your debug configuration in VSCode, like so:
+Install VSCode extension: PHP Debug (felixfbecker.php-debug).
+Add to your debug configuration in VSCode, like so:
 {
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "TMS XDebug",
+      "name": "deb",
       "type": "php",
       "request": "launch",
-      "log": true,
       "port": 9000,
       "pathMappings": {
-        "/var/www/html/sptms-wirecard": "${workspaceRoot}", // Recommended
-        // "/var/www/html": "${workspaceDir}"
-        // "/var/www/html/tms": "/var/www/html/dev-tms/smartpay/tms",
-        // "/var/www/html/wirecard/site": "/var/www/html/dev-sptms-v1-mysql/smartpay/sptms-v1-mysql-wirecard/site"
+        "/var/www/html": "${workspaceFolder}",
+      },
+      "xdebugSettings": {
+        "max_data": -1,
+        "max_children": -1
       }
     },
-    ...
+    {
+      "name": "wrc",
+      "type": "php",
+      "request": "launch",
+      "port": 9000,
+      "pathMappings": {
+        "/var/www/html/sptms-wirecard": "${workspaceFolder}",
+      },
+      "xdebugSettings": {
+        "max_data": -1,
+        "max_children": -1
+      }
+    },
+    {
+      "name": "Launch currently open script",
+      "type": "php",
+      "request": "launch",
+      "program": "${file}",
+      "cwd": "${fileDirname}",
+      "port": 9000
+    }
   ]
 }
 EOF
