@@ -61,8 +61,7 @@ Add to your debug configuration in VSCode, like so:
         "/var/www/html": "${workspaceFolder}",
       },
       "xdebugSettings": {
-        "max_data": -1,
-        "max_children": -1
+        "max_data": -1
       }
     },
     {
@@ -74,8 +73,7 @@ Add to your debug configuration in VSCode, like so:
         "/var/www/html/sptms-wirecard": "${workspaceFolder}",
       },
       "xdebugSettings": {
-        "max_data": -1,
-        "max_children": -1
+        "max_data": -1
       }
     },
     {
@@ -91,3 +89,4 @@ Add to your debug configuration in VSCode, like so:
 EOF
 
 echo "Done"
+
