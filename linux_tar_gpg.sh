@@ -51,6 +51,7 @@ encrypt()
   echo -e "Copying files from \e[32m$DIR_SOURCE/\e[0m to \e[32m$DIR_FILES/\e[0m"
   rsync -a -f '- */' -f '- *.zip' -f '- local.tar.gz.gpg' --no-perms --omit-dir-times "$DIR_SOURCE/" "$DIR_FILES/" # ... rsync -av -f '- */' -f '- *.zip' -f '- local.tar.gz.gpg' --no-links "$DIR_SOURCE/" "$DIR_FILES/"
   rsync -a --no-perms --omit-dir-times "$DIR_SOURCE/env/" "$DIR_FILES/env/" # ... rsync -av --no-links "$DIR_SOURCE/env/" "$DIR_FILES/env/"
+  rsync -a --no-perms --omit-dir-times "$DIR_SOURCE/notes/" "$DIR_FILES/notes/"
 
   readme_update "$DIR_FILES/README.md"
 
@@ -94,8 +95,9 @@ backup_dir_source()
   # TODO Backup $DIR_SOURCE and move contents from $DEST_NORMALIZED into $DIR_SOURCE (overwrite existing files)
   DIR_TMP="$1_$(openssl rand -hex 6)_backup/"
   echo -e "Creating backup for $DIR_SOURCE at location $DIR_TMP"
-  rsync -a -f '- */' -f '+ env/' -f '- *.zip' --no-perms --omit-dir-times "$DIR_SOURCE/" $DIR_TMP
+  rsync -a -f '- */' -f '+ env/' -f '+ notes/' -f '- *.zip' --no-perms --omit-dir-times "$DIR_SOURCE/" $DIR_TMP
   rsync -a --no-perms --omit-dir-times "$DIR_SOURCE/env/" "$DIR_TMP/env/" # ... rsync -av --no-links "$DIR_SOURCE/env/" "$DIR_FILES/env/"
+  rsync -a --no-perms --omit-dir-times "$DIR_SOURCE/notes/" "$DIR_TMP/notes/"
 
   echo -e "\e[32mUpdating files in $DIR_SOURCE\e[0m"
   rsync -a --no-links --no-perms --omit-dir-times "$1/" "$DIR_SOURCE/"
@@ -117,6 +119,7 @@ git_add_files()
 {
   cd "$DIR_SOURCE"
   git add -f "env/"
+  git add -f "notes/"
   git add -f "$TAR_FILE"
   git add -f "linux_tar_gpg.sh"
   git add -f ".gitignore"
