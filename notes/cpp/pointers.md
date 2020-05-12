@@ -21,10 +21,9 @@ int main(...) {
 
 ## UNIQUE PTR
 
-# TLDR
+### TLDR
 
 // Use them as often as you can. When needed switch to shared_ptr.
-
 // make_unique() is available since C++14.
 // Employee* anEmployee = new Employee; ............................. // no
 auto anEmployee = std::make_unique<Employee>(); ..................... // yes
@@ -88,8 +87,8 @@ int main(...)
 // To avoid common memory problems, you should use smart pointers instead of normal naked C-style pointers.
 // Smart pointers automatically deallocate memory when the smart pointer object goes out of scope, for example when the function has finished executing.
 
-// There are three smart pointer types in C++: std::unique_ptr, std::shared_ptr and std::weak_ptr,
-// all defned in the <memory> header. The unique_ptr is analogous to an ordinary pointer, except
+// There are three smart pointer types in C++: std::unique_ptr, std::shared_ptr and std::weak_ptr, all defned in the <memory> header.
+// The unique_ptr is analogous to an ordinary pointer, except
 // that it will automatically free the memory or resource when the unique_ptr goes out of scope or is
 // deleted. A unique_ptr has sole ownership of the object pointed to. One advantage of the unique_
 // ptr is that it simplifes coding where storage must be freed when an exceptional situation occurs.
@@ -97,7 +96,7 @@ int main(...)
 // store a C-style array in a unique_ptr. Use std::make_unique<>() to create a unique_ptr.
 // For example, instead of writing the following:
 
-# via make_unique ... // C++14
+### via make_unique ... // C++14
 
 // make_unique() is available since C++14.
 
@@ -141,7 +140,7 @@ int main(...)
 }
 ```
 
-# via unique_ptr
+### via unique_ptr
 
 // Points to object of type T on the HEAP. Very simple and efficient. Useful in small blocks of code with short longevity.
 // Unique means there can be only one such pointer to resource T on the heap.
@@ -154,7 +153,7 @@ std::unique_ptr<Employee> e1(new Employee);
 // unique_ptr is a generic smart pointer that can point to any kind of memory.
 // That’s why it is a template. Templates require the angle brackets to specify the template parameters. Between the brackets you have to specify the type of memory you want your unique_ptr to point to.
 
-# STD TYPES
+### STD TYPES
 ```cpp
   #include "memory"
   ...
@@ -170,7 +169,7 @@ std::unique_ptr<Employee> e1(new Employee);
   } ................................................................... // When the block ends the pointer is destroyed
 ```
 
-# CUSTOM TYPES
+### CUSTOM TYPES
 
 ```cpp
   #include "memory"
@@ -185,7 +184,7 @@ std::unique_ptr<Employee> e1(new Employee);
   }
 ```
 
-# NO COPY
+### NO COPY
 ```cpp
 int main(...)
 {
@@ -202,7 +201,7 @@ int main(...)
 }
 ```
 
-# MOVE OPERATION
+### MOVE OPERATION
 ```cpp
   {
     vector<unique_ptr<int>> vec;
@@ -212,7 +211,7 @@ int main(...)
   }
 ```
 
-# LISTS
+### LISTS
 ```cpp
 int main(...)
 {
@@ -244,7 +243,7 @@ int main(...)
 // When a shared_ptr goes out of scope, the reference count is decremented. When the reference count goes to zero it means there is no longer any owner of the data, and the object referenced by the pointer is freed.
 // You cannot store an array in a shared_ptr.
 
-# TLDR
+### TLDR
 
 // Points to objects of type T. It is not unique, many shared_ptr can point to the same object on the heap.
 // Can be assigned and copied. Can be moved. Cannot store array.
@@ -258,7 +257,7 @@ int main(...)
   }
 ```
 
-# via make_shared
+### via make_shared
 ```cpp
   // More efficent. Several pointers can point to the same resource or object on the heap. When use_count becomes 0 the heap object is deallocated.
   #include "memory"
@@ -275,7 +274,7 @@ int main(...)
   }
 ```
 
-via shared_ptr
+###via shared_ptr
 ```cpp
   #include "memory"
   int main(...)
@@ -287,7 +286,7 @@ via shared_ptr
   }
 ```
 
-OBJECT METHODS
+###OBJECT METHODS
 ```cpp
   // Points to objects of type T. It is not unique, many shared_ptr can point to the same object on the heap.
   // Can be assigned and copied. Can be moved. Cannot store array.
@@ -303,7 +302,7 @@ OBJECT METHODS
   }
 ```
 
-LISTS
+###LISTS
 ```cpp
   int main(...)
   {
@@ -331,7 +330,7 @@ LISTS
   }
 ```
 
-REFERENCE COUNTING
+###REFERENCE COUNTING
 ```cpp
   // It is not unique, many shared_ptr can point to the same object on the heap.
 
@@ -358,7 +357,7 @@ REFERENCE COUNTING
 // You can use weak_ptr to observe a shared_ptr without incrementing or decrementing the reference count of the linked shared_ptr.
 // Used to prevent strong reference cycles which could prevent objects from being deleted.
 
-# TLDR
+### TLDR
 ```cpp
     // Prevent cyclic referencing: A refers B and B refers A
     //    ... A ...............      ... B ...............
