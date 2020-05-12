@@ -355,11 +355,11 @@ REFERENCE COUNTING
 
 ## WEAK PTR
 
-  // You can use weak_ptr to observe a shared_ptr without incrementing or decrementing the reference count of the linked shared_ptr.
-  // Used to prevent strong reference cycles which could prevent objects from being deleted.
+// You can use weak_ptr to observe a shared_ptr without incrementing or decrementing the reference count of the linked shared_ptr.
+// Used to prevent strong reference cycles which could prevent objects from being deleted.
 
-  TLDR
-
+# TLDR
+```cpp
     // Prevent cyclic referencing: A refers B and B refers A
     //    ... A ...............      ... B ...............
     //    ... shared_ptr<B> ...      ... shared_ptr<A> ...
@@ -380,3 +380,4 @@ REFERENCE COUNTING
       // shared_ptr<Bar> bar = make_shared<Bar>(..., ..., ...);
       foo.setBar(bar);
     }
+```
