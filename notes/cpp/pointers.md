@@ -88,12 +88,9 @@ int main(...)
 // Smart pointers automatically deallocate memory when the smart pointer object goes out of scope, for example when the function has finished executing.
 
 // There are three smart pointer types in C++: std::unique_ptr, std::shared_ptr and std::weak_ptr, all defned in the <memory> header.
-// The unique_ptr is analogous to an ordinary pointer, except
-// that it will automatically free the memory or resource when the unique_ptr goes out of scope or is
-// deleted. A unique_ptr has sole ownership of the object pointed to. One advantage of the unique_
-// ptr is that it simplifes coding where storage must be freed when an exceptional situation occurs.
-// When the smart pointer variable leaves its scope, the storage is automatically freed. You can also
-// store a C-style array in a unique_ptr. Use std::make_unique<>() to create a unique_ptr.
+// The unique_ptr is analogous to an ordinary pointer, except that it will automatically free the memory or resource when the unique_ptr goes out of scope or is deleted.
+// A unique_ptr has sole ownership of the object pointed to. One advantage of the unique_ptr is that it simplifes coding where storage must be freed when an exceptional situation occurs.
+// When the smart pointer variable leaves its scope, the storage is automatically freed. You can also store a C-style array in a unique_ptr. Use std::make_unique<>() to create a unique_ptr.
 // For example, instead of writing the following:
 
 ### via make_unique ... // C++14
@@ -355,7 +352,7 @@ int main(...)
 ## WEAK PTR
 
 // You can use weak_ptr to observe a shared_ptr without incrementing or decrementing the reference count of the linked shared_ptr.
-// Used to prevent strong reference cycles which could prevent objects from being deleted.
+// Used to prevent strong reference cycles which could prevent objects from being deleted.  
 
 ### TLDR
 ```cpp
