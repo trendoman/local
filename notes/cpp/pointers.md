@@ -1,7 +1,7 @@
 ### SMART POINTERS
 <br/>
 
-'''cpp
+```cpp
 
   // No need for keywords new and delete. Smart pointer only exist in the block scope they are declared in.
 
@@ -379,5 +379,4 @@
         // cout << "Using custom deleter lambda" << endl;
         delete foo;
       });
-
 ```
