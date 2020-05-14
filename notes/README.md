@@ -20,9 +20,11 @@ Post requests should contains the following common headers for JSON requests:
 ### AVAILABILITY INFORMATION
 
 HTTP Verb: GET
+
 Location: '/availability.php?id=3'
 
 Response
+
 ```json
 {
     "Id": 1,
@@ -33,16 +35,26 @@ Response
     "IsActive": true
 }
 ```
-'/plate.php' .................................. // CAR PLATE CODIFICATION RULES
-// RESPONSE
-// [
-//     {
-//         "Id": 1,
-//         "Regex": "((AB|AG|AR|BC|BH|BN|BR|BT|BV|BZ|CJ|CL|CS|CT|CV|DB|DJ|GJ|GL|GR|HD|HR|IF|IL|IS|MH|MM|MS|NT|OT|PH|SB|SJ|SM|SV|TL|TM|TR|VL|VN|VS){1}([0]{1}[1-9]{1}|[1-9]{1}\\d{1})([A-PR-Z]){3})|((B){1}([0]{1}[1-9]{1}|[1-9]{1}\\d{1,2})([A-PR-Z]){3})|((AB|AG|AR|B|BC|BH|BN|BR|BT|BV|BZ|CJ|CL|CS|CT|CV|DB|DJ|GJ|GL|GR|HD|HR|IF|IL|IS|MH|MM|MS|NT|OT|PH|SB|SJ|SM|SV|TL|TM|TR|VL|VN|VS|CD|CO|TC){1}[1-9]{1}\\d{2,10})",
-//         "Country": "RO",
-//         "IsActive": true
-//     }
-// ]
+
+### Car plate codification rules
+
+HTTP Verb: GET
+
+Location: '/plate.php'
+
+Response
+
+```json
+[
+    {
+        "Id": 1,
+        "Regex": "((AB|AG|AR|BC|BH|BN|BR|BT|BV|BZ|CJ|CL|CS|CT|CV|DB|DJ|GJ|GL|GR|HD|HR|IF|IL|IS|MH|MM|MS|NT|OT|PH|SB|SJ|SM|SV|TL|TM|TR|VL|VN|VS){1}([0]{1}[1-9]{1}|[1-9]{1}\\d{1})([A-PR-Z]){3})|((B){1}([0]{1}[1-9]{1}|[1-9]{1}\\d{1,2})([A-PR-Z]){3})|((AB|AG|AR|B|BC|BH|BN|BR|BT|BV|BZ|CJ|CL|CS|CT|CV|DB|DJ|GJ|GL|GR|HD|HR|IF|IL|IS|MH|MM|MS|NT|OT|PH|SB|SJ|SM|SV|TL|TM|TR|VL|VN|VS|CD|CO|TC){1}[1-9]{1}\\d{2,10})",
+        "Country": "RO",
+        "IsActive": true
+    }
+]
+```
+
 '/vehicle?id=3' ............................... // GET VEHICLE INFORMATION
 
 '/location *'
