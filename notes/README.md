@@ -1,33 +1,29 @@
 Collection of programming notes
 
-## Web gateway
+## Web gateway  
 
 
-### Terminal ID
+### Terminal ID  
 
-All HTTP requests to gateway endpoints should contain a $_GET query parameter called terminal_id. For example:
+All HTTP requests to gateway endpoints should contain a $_GET query parameter called terminal_id. For example:  
 - http://wg.smartpay/vignette-issue.php?terminal_id=789
 - http://wg.smartpay/vignette-download.php?id=21286001&terminal_id=789
 
 
-### Common headers
+### Common headers  
 
-Post requests should contains the following common headers for JSON requests:
+Post requests should contains the following common headers for JSON requests:  
 - "Content-Type: application/json"
 - "Accept: application/json"
 
 
-### AVAILABILITY INFORMATION
-
-HTTP Verb: GET
-
-Location: '/availability.php?id=3'
-
-Response
-
+### Availability information  
+HTTP Verb: GET  
+Location: '/availability.php?id=3'  
+Response  
 ```json
 {
-    "Id": 1,
+    "Id": 3,
     "TimeUnits": 1,
     "TimeUnitType": "Zi",
     "Description": "1 zi",
@@ -36,14 +32,10 @@ Response
 }
 ```
 
-### Car plate codification rules
-
-HTTP Verb: GET
-
-Location: '/plate.php'
-
-Response
-
+### Car plate codification rules  
+HTTP Verb: GET  
+Location: '/plate.php'  
+Response  
 ```json
 [
     {
@@ -55,19 +47,116 @@ Response
 ]
 ```
 
-'/vehicle?id=3' ............................... // GET VEHICLE INFORMATION
+### Vehicle information  
+HTTP Verb: GET  
+Location: '/vehicle?id=3'  
+Response  
+```json
+{
+    "Id": 3,
+    "VehicleType": "A",
+    "ShortDescription": "A - Autoturisme",
+    "Description": "Autoturisme",
+    "IsActive": true
+}
+```
 
-'/location *'
-'/city.php?id=3' ........................... // GET CITY INFORMATION
-'/country.php?id=3' ........................ // GET COUNTRY INFORMATION
-'/county.php?id=3' ......................... // GET COUNTY INFORMATION
 
-'/currency.php?id=3' .......................... // CURRENCY
-'/exchange-rate.php?id=3' ..................... // EXCHANGE RATE
+### City information  
+HTTP Verb: GET  
+Location: '/city.php?id=127660'  
+Response  
+```json
+{
+    "Id": "127660",
+    "Name": "Valea Ramnicului",
+    "CountyCode": "BZ",
+    "IsActive": true
+}
+```
+
+
+### Country information  
+HTTP Verb: GET  
+Location: '/country.php?id=RO'  
+Response  
+```json
+{
+    "Id": "RO",
+    "Name": "ROMANIA",
+    "IsActive": true
+}
+```
+
+
+### County information  
+HTTP Verb: GET  
+Location: '/county.php?id=AB'  
+Response  
+```json
+{
+    "Id": "AB",
+    "Name": "Alba",
+    "IsActive": true
+}
+```
+
+### Currency information  
+HTTP Verb: GET  
+Location: '/currency.php?id=EUR'  
+Response  
+```json
+{
+    "Id": "EUR",
+    "Description": "Euro",
+    "IsActive": true
+}
+```
+
+
+### Exchange rate  
+HTTP Verb: GET  
+Location: '/exchange-rate.php?id=10026669'    
+Response  
+```json
+{
+    "Id": 10026669,
+    "Value": 4.3197,
+    "HistDate": "2012-01-03T00:00:00",
+    "Currency": "EUR",
+    "RefCurrency": "RON"
+}
+```
+
+
 '/payment-method.php?id=3' .................... // PAYMENT METHOD
+### Vehicle information  
+HTTP Verb: GET  
+Location: '/vehicle?id=3'  
+Response  
+```json
+...
+```
+
+
 '/price.php?currency=EUR&refCurrency=RON' ..... // PRICES
+### Vehicle information  
+HTTP Verb: GET  
+Location: '/vehicle?id=3'  
+Response  
+```json
+...
+```
+
 
 '/vignette/issue.php' ......................... // DOWNLOAD VIGNETTE
+### Vehicle information  
+HTTP Verb: GET  
+Location: '/vehicle?id=3'  
+Response  
+```json
+...
+```
 // REQUEST
 // {
 //     "RegistrationNumber":"SM09ABP",
@@ -97,4 +186,13 @@ Response
 //     "EndDate": "2019-10-27T23:59:59.999+02:00",
 //     "Success": true
 // }
+
+
 '/vignette/download.php?id=21059003' .......... // DOWNLOAD VIGNETTE
+### Vehicle information  
+HTTP Verb: GET  
+Location: '/vehicle?id=3'  
+Response  
+```json
+...
+```
