@@ -129,70 +129,83 @@ Response
 ```
 
 
-'/payment-method.php?id=3' .................... // PAYMENT METHOD
-### Vehicle information  
+### Payment method  
 HTTP Verb: GET  
-Location: '/vehicle?id=3'  
+Location: '/payment-method.php?id=3'  
 Response  
 ```json
-...
+{
+    "Id": 3,
+    "Description": "Ordin de plata"
+}
 ```
 
 
-'/price.php?currency=EUR&refCurrency=RON' ..... // PRICES
-### Vehicle information  
+### Prices information  
 HTTP Verb: GET  
-Location: '/vehicle?id=3'  
+Location: '/price.php?currency=EUR&refCurrency=RON'  
 Response  
 ```json
-...
+[
+    {
+        "Id": 10000423,
+        "HistDate": "2019-09-02T00:00:00",
+        "ExchangeRate": 4.7294,
+        "Currency": "EUR",
+        "CurrencyAmount": 4.0,
+        "RefCurrency": "RON",
+        "RefCurrencyAmount": 18.92,
+        "VehicleId": 3,
+        "AvailabilityId": 1
+    }
+]
 ```
 
 
-'/vignette/issue.php' ......................... // DOWNLOAD VIGNETTE
-### Vehicle information  
-HTTP Verb: GET  
-Location: '/vehicle?id=3'  
-Response  
+### Download vignette  
+HTTP Verb: POST  
+Location: '/vignette/issue.php'  
+Request body  
 ```json
-...
+{
+    "RegistrationNumber":"SM09ABP",
+    "ChassisNumber":"WAUZZZ8X8EB095418",
+    "Country":"RO",
+    "VehicleId":1,
+    "AvailabilityId":2,
+    "StartDate":"2019-10-21T00:00:00",
+    "Currency":"EUR",
+    "RefCurrency":"RON",
+    "CurrencyAmount":3,
+    "RefCurrencyAmount":14.25,
+    "ExchangeRateDate":"2019-09-30T00:00:00",
+    "PaymentMethod":1,
+    "GenerateDocument":true,
+    "CustomerNumber":"0205869"
+}
 ```
-// REQUEST
-// {
-//     "RegistrationNumber":"SM09ABP",
-//     "ChassisNumber":"WAUZZZ8X8EB095418",
-//     "Country":"RO",
-//     "VehicleId":1,
-//     "AvailabilityId":2,
-//     "StartDate":"2019-10-21T00:00:00",
-//     "Currency":"EUR",
-//     "RefCurrency":"RON",
-//     "CurrencyAmount":3,
-//     "RefCurrencyAmount":14.25,
-//     "ExchangeRateDate":"2019-09-30T00:00:00",
-//     "PaymentMethod":1,
-//     "GenerateDocument":true,
-//     "CustomerNumber":"0205869"
-// }
-
-// RESPONSE (success)
-// {
-//     "VignetteId": "2128600939",
-//     "TransactionId": "CNADNR0082488207",
-//     "RegistrationNumber": "SM09ABP",
-//     "ChassisNumber": "WAUZZZ8X8EB095418",
-//     "Country": "RO",
-//     "StartDate": "2019-10-21T11:17:42.381+03:00",
-//     "EndDate": "2019-10-27T23:59:59.999+02:00",
-//     "Success": true
-// }
-
-
-'/vignette/download.php?id=21059003' .......... // DOWNLOAD VIGNETTE
-### Vehicle information  
-HTTP Verb: GET  
-Location: '/vehicle?id=3'  
 Response  
 ```json
-...
+{
+    "VignetteId": "2128600939",
+    "TransactionId": "CNADNR0082488207",
+    "RegistrationNumber": "SM09ABP",
+    "ChassisNumber": "WAUZZZ8X8EB095418",
+    "Country": "RO",
+    "StartDate": "2019-10-21T11:17:42.381+03:00",
+    "EndDate": "2019-10-27T23:59:59.999+02:00",
+    "Success": true
+}
+```
+
+
+### Download vignette  
+HTTP Verb: GET  
+Location: '/vignette/download.php?id=21059003'  
+Response  
+```json
+{
+    "VignetteId": 21059003,
+    "InfoDocument": "..."
+}
 ```
