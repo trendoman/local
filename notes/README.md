@@ -1,7 +1,7 @@
 Collection of programming notes
 
 ## Web gateway  
-
+  
 
 ### Terminal ID  
 
@@ -19,7 +19,7 @@ Post requests should contains the following common headers for JSON requests:
 
 ### Availability information  
 HTTP Verb: GET  
-Location: '/availability.php?id=3'  
+Location: /availability.php?id=3  
 Response  
 ```json
 {
@@ -34,7 +34,7 @@ Response
 
 ### Car plate codification rules  
 HTTP Verb: GET  
-Location: '/plate.php'  
+Location: /plate.php  
 Response  
 ```json
 [
@@ -49,7 +49,7 @@ Response
 
 ### Vehicle information  
 HTTP Verb: GET  
-Location: '/vehicle?id=3'  
+Location: /vehicle?id=3  
 Response  
 ```json
 {
@@ -64,7 +64,7 @@ Response
 
 ### City information  
 HTTP Verb: GET  
-Location: '/city.php?id=127660'  
+Location: /city.php?id=127660  
 Response  
 ```json
 {
@@ -78,7 +78,7 @@ Response
 
 ### Country information  
 HTTP Verb: GET  
-Location: '/country.php?id=RO'  
+Location: /country.php?id=RO  
 Response  
 ```json
 {
@@ -91,7 +91,7 @@ Response
 
 ### County information  
 HTTP Verb: GET  
-Location: '/county.php?id=AB'  
+Location: /county.php?id=AB  
 Response  
 ```json
 {
@@ -103,7 +103,7 @@ Response
 
 ### Currency information  
 HTTP Verb: GET  
-Location: '/currency.php?id=EUR'  
+Location: /currency.php?id=EUR  
 Response  
 ```json
 {
@@ -116,7 +116,7 @@ Response
 
 ### Exchange rate  
 HTTP Verb: GET  
-Location: '/exchange-rate.php?id=10026669'    
+Location: /exchange-rate.php?id=10026669    
 Response  
 ```json
 {
@@ -131,7 +131,7 @@ Response
 
 ### Payment method  
 HTTP Verb: GET  
-Location: '/payment-method.php?id=3'  
+Location: /payment-method.php?id=3  
 Response  
 ```json
 {
@@ -143,7 +143,7 @@ Response
 
 ### Prices information  
 HTTP Verb: GET  
-Location: '/price.php?currency=EUR&refCurrency=RON'  
+Location: /price.php?currency=EUR&refCurrency=RON  
 Response  
 ```json
 [
@@ -164,7 +164,7 @@ Response
 
 ### Download vignette  
 HTTP Verb: POST  
-Location: '/vignette/issue.php'  
+Location: /vignette/issue.php  
 Request body  
 ```json
 {
@@ -201,7 +201,7 @@ Response
 
 ### Download vignette  
 HTTP Verb: GET  
-Location: '/vignette/download.php?id=21059003'  
+Location: /vignette/download.php?id=21059003  
 Response  
 ```json
 {
